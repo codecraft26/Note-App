@@ -2,6 +2,8 @@ package dev.aman.noteapp
 
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() ,INotesRVAdapter{
            list->
             list?.let{
 
-                adapter.updateList()
+                adapter.updateList(it)
             }
 
              })
@@ -43,5 +45,13 @@ class MainActivity : AppCompatActivity() ,INotesRVAdapter{
 
     }
 
- 
+    fun submitData(view: View) {
+        val noteText=findViewById<Button>(R.id.addButton)
+        if(noteText.isNotEmpty()){
+            viewModel.insertNote(Note(noteText))
+        }
+
+    }
+
+
 }
