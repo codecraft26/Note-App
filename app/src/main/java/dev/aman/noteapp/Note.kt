@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 data class Note(
     @ColumnInfo(name="text")val note:String,val text:String) {
     @PrimaryKey(autoGenerate = true) var id=0
+    //set changes to 0
 
 }
